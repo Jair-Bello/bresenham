@@ -84,6 +84,20 @@ function bresenham(x0, y0, x1, y1, plot) {
     }
 }
 
+//Evento del botón para dibujar la línea.
+document.getElementById("drawBtn").addEventListener("click", () => {
+    clearCanvas();
+    drawGrid();
+    drawScale();
+
+    const x0 = parseInt(document.getElementById("x0").value);
+    const y0 = parseInt(document.getElementById("y0").value);
+    const x1 = parseInt(document.getElementById("x1").value);
+    const y1 = parseInt(document.getElementById("y1").value);
+
+    bresenham(x0, y0, x1, y1, plot);
+});
+
 clearCanvas();
 drawGrid();
 drawScale();
