@@ -42,6 +42,21 @@ function drawScale() {
     }
 }
 
+/**Dibuja un píxel lógico dentro de la cuadrícula.
+ * @param {number} x Coordenada X.
+ * @param {number} y Coordenada Y.
+ */
+function plot(x, y) {
+    ctx.fillStyle = "red";
+
+    ctx.fillRect(
+        x * gridSize,
+        canvas.height - (y + 1) * gridSize,
+        gridSize,
+        gridSize
+    );
+}
+
 clearCanvas();
 drawGrid();
 drawScale();
