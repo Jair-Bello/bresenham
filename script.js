@@ -13,7 +13,6 @@ function clearCanvas() {
 }
 
 //Dibuja la cuadrícula base del canvas.
-
 function drawGrid() {
     for (let x = 0; x <= canvas.width; x += gridSize) {
         ctx.beginPath();
@@ -30,6 +29,19 @@ function drawGrid() {
     }
 }
 
-//Dibujar cuadrícula inicial
+//Dibuja numeración de escala en ejes.
+function drawScale() {
+    ctx.font = "10px Arial";
+
+    for (let i = 0; i <= canvas.width / gridSize; i++) {
+        ctx.fillText(i, i * gridSize + 5, canvas.height - 5);
+    }
+
+    for (let i = 0; i <= canvas.height / gridSize; i++) {
+        ctx.fillText(i, 5, canvas.height - i * gridSize - 5);
+    }
+}
+
 clearCanvas();
 drawGrid();
+drawScale();
