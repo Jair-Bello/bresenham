@@ -65,12 +65,27 @@ function bresenham(x0, y0, x1, y1, plot) {
     let sy = (y0 < y1) ? 1 : -1;
     let err = dx - dy;
 
+    const tbody = document.querySelector("#stepsTable tbody");
+    tbody.innerHTML = "";
+
+    let paso = 0;
+
     while (true) {
         plot(x0, y0);
 
-        if (x0 === x1 && y0 === y1) break;
-
         let e2 = 2 * err;
+
+        tbody.innerHTML += `
+            <tr>
+                <td>${paso}</td>
+                <td>${x0}</td>
+                <td>${y0}</td>
+            </tr>
+        `;
+
+        paso++;
+
+        if (x0 === x1 && y0 === y1) break;
 
         if (e2 > -dy) {
             err -= dy;
